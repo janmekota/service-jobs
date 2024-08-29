@@ -76,6 +76,10 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.2.13'
     implementation 'ch.qos.logback:logback-core:1.2.13'
 
+    // logstash-logback-encoder for net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
+    // used for json logging in logback-spring.xml
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.2'
+
     //Fix CVE-2023-40827, CVE-2023-40828, CVE-2023-40826
     implementation 'org.springframework:spring-webmvc:5.3.33'
     implementation 'org.springframework:spring-web:5.3.33'
@@ -102,7 +106,9 @@ dependencies {
 
     implementation "com.rabbitmq:http-client:5.2.0"
     //Fix CVE
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
+    //implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
+    // logstash-logback-encoder:7.2 does not work with jackson-databind:2.15
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.3'
 
     runtimeOnly 'org.postgresql:postgresql'
 
